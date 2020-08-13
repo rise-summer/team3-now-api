@@ -4,4 +4,5 @@ import cors from 'cors'; //Security measures
 
 const searchRouter = express.Router();
 searchRouter.get('/search', search)
+
 export default searchRouter;
