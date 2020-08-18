@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
-//Comment schema
-const Article = new mongoose.Schema({
+//Article schema
+const ArticleSchema = new mongoose.Schema({
   title: {
     type: String,
     required: "Title is required"
@@ -16,4 +16,5 @@ const Article = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model("ArticleSchema", ArticleSchema);
+const model = mongoose.model("Article", ArticleSchema);
+export default model;

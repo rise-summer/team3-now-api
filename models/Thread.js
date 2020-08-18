@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const ThreadSchema = new mongoose.Schema({
     name: {
@@ -12,12 +12,13 @@ const ThreadSchema = new mongoose.Schema({
             ref: "Article"
         }
     ],
-    help: [
+    resources: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Help"
+            ref: "Resource"
         }
     ]
 });
 
-module.exports = mongoose.model('User', UserSchema);
+const model = mongoose.model('Thread', ThreadSchema);
+export default model;

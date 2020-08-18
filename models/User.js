@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema({
     active: {
@@ -19,7 +19,20 @@ const UserSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "Article"
         }
+    ],
+    savedArticles: [
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"Article"
+        }
+    ],
+    savedResources: [
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"Article"
+        }
     ]
 });
 
-module.exports = mongoose.model('User', UserSchema);
+const model = mongoose.model('User', UserSchema);
+export default model;
