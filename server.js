@@ -1,6 +1,7 @@
 // We need to stick with either all import or require, so we're going with "import"
 import searchRouter from "./routes/searchRouter.js"
 // const searchRouter = require('./routes/searchRouter');
+import displayData from './displayData.js'
 
 import db from "./db.js";
 import express from 'express';
@@ -14,13 +15,15 @@ const app = express();
 app.use(bodyParser.json()); //Use bodyParser middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
+// Import Routes
 app.use('/', searchRouter)
 
+app.use('/', displayData) //Gets article, thread, and user
+
 // app.set('view engine', 'html');
-// app.get('/', (req, res) => {
-//     res.send('This API is working');
-// })
+app.get('/', (req, res) => {
+    res.send('This API is working');
+})
 
 const PORT = process.env.PORT || 4000;
 

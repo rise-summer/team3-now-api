@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const ThreadSchema = new mongoose.Schema({
     ID: Number,
@@ -12,4 +12,5 @@ const ThreadSchema = new mongoose.Schema({
     ]
 });
 
-module.exports = mongoose.model('User', UserSchema);
+const model = mongoose.model('Thread', ThreadSchema);
+export default model;
