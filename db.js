@@ -1,7 +1,5 @@
-import mongoose from 'mongoose'
-//const dotenv = require('dotenv'); 
-//Why do we require and config the dotenv in db AND in server?
-import dotenv from 'dotenv'
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 dotenv.config();
 
 mongoose.connect(
@@ -22,3 +20,4 @@ db.once("open", handleOpen);
 db.on("error", handleError);
 
 export default db;
+

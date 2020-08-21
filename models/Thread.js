@@ -1,13 +1,21 @@
 import mongoose from 'mongoose';
 
 const ThreadSchema = new mongoose.Schema({
-    ID: Number,
-    name: String,
+    name: {
+        type: String,
+        unique: true
+    },
     description: String,
     articles: [
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Article"
+        }
+    ],
+    resources: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Resource"
         }
     ]
 });
