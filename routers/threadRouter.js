@@ -1,8 +1,8 @@
 import express from 'express';
-import routes from '../routes';
+import routes from '../routes.js';
 import {
     postResourceSubmit
-} from "../controllers/threadController"
+} from "../controllers/threadController.js"
 
 const threadRouter = express.Router();
 

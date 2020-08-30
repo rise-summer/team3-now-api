@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 mongoose.connect(
-    process.env.PRODUCTION ? process.env.MONGO_URL_PROD : process.env.MONGO_URL_TEST, 
+    process.env.PRODUCTION ? process.env.MONGO_URL_PROD : process.env.MONGO_URL_TEST,  //From the .env file
     {
         useNewUrlParser: true, 
         useUnifiedTopology: true,
@@ -19,4 +19,5 @@ const handleError = error => console.log(`❌ Error on DB Connection:${error}`);
 db.once("open", handleOpen);
 db.on("error", handleError);
 
-export default db; 
+export default db;
+

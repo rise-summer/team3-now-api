@@ -1,23 +1,30 @@
+// We need to stick with either all import or require, so we're going with "import"
+import searchRouter from "./routers/searchRouter.js"
+import displayData from './displayData.js'
+import threadRouter from "./routers/threadRouter.js";
+
+import db from "./db.js";
 import express from 'express';
+import bodyParser from 'body-parser'; //Not entirely sure what this does - same
 import helmet from 'helmet';
 
 import dotenv from 'dotenv';
 dotenv.config();
-import cors from 'cors';
-import bodyParser from 'body-parser';
 
-import db from "./db";
-import searchRouter from "./routers/searchRouter" //Should we use require instead of import?
-import threadRouter from "./routers/threadRouter";
+const app = express();
+app.use(helmet());
+app.use(bodyParser.json()); //Use bodyParser middleware
+app.use(bodyParser.urlencoded({ extended: true }));
 
-const server = express();
-server.use(helmet());
-server.use(bodyParser.json());
-server.use(bodyParser.urlencoded({ extended: true }));
-server.use('/', searchRouter);
-server.use('/thread', threadRouter);
+// Import Routes
+app.use('/', displayData) //Gets article, thread, and user
+app.use('/', searchRouter);
+app.use('/thread', threadRouter);
 
-
-export default server;
+// app.set('view engine', 'html');
+app.get('/', (req, res) => {
+    res.send('This API is working');
+});
+export default app;
 
 

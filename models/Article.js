@@ -4,11 +4,13 @@ import mongoose from "mongoose";
 const ArticleSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: "Title is required"
+    required: "Title is required",
+    text: true
   },
   content: {
     type: String,
-    required: "Text is required"
+    required: "Text is required",
+    text: true
   },
   createdAt: {
     type: Date,

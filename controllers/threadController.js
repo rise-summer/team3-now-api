@@ -1,6 +1,6 @@
 // import express from 'express';
-import Thread from '../models/Thread';
-import Resource from '../models/Resource';
+import Thread from '../models/Thread.js';
+import Resource from '../models/Resource.js';
 
 //type, title, link, description, 
 export const postResourceSubmit = async(req, res) => {
